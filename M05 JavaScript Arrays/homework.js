@@ -65,7 +65,7 @@ function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar true si está, o false si no está.
    // Tu código:
-   for (let i = 0; i < array.length; i++) {
+   for (var i = 0; i < array.length; i++) {
       if (array[i] === elemento) {
         return true;
       }
@@ -77,6 +77,9 @@ function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
+   return Array.isArray(arrayOfNums) && arrayOfNums.every((num) => typeof num === 'number')
+   ? arrayOfNums.reduce((acumulador, num) => acumulador + num, 0) 
+   : "Error: El argumento debe ser un arreglo que contenga solo números";
 }
 
 function promedioResultadosTest(resultadosTest) {
