@@ -162,6 +162,14 @@ function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
+   if (array.length === 0) {
+      return true ;
+   } for (var i = 1; i < array.length; i++) {
+      if (array[i] !== array [0]) {
+         return false ;
+      }
+   }
+   return true ;
 }
 
 function mesesDelAño(array) {
@@ -169,18 +177,49 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
+   var mesesBuscados = ["Enero", "Marzo", "Noviembre"];
+  var mesesEncontrados = [];
+
+  for (var i = 0; i < array.length; i++) {
+    if (mesesBuscados.includes(array[i])) {
+      mesesEncontrados.push(array[i]);
+    }
+  }
+
+  if (mesesEncontrados.length === mesesBuscados.length) {
+    return mesesEncontrados;
+  } else {
+    return "No se encontraron los meses pedidos";
+  }
 }
 
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+      var resultados = [];
+    
+      for (var i = 0; i <= 10; i++) {
+        var resultadoMultiplicacion = 6 * i;
+        resultados.push(resultadoMultiplicacion);
+      }
+    
+      return resultados;
 }
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+   var mayorACien = [];
+
+   for (var i = 0; i < array.length; i++) {
+     if (array[i] > 100) {
+       mayorACien.push(array[i]);
+     }
+   }
+ 
+   return mayorACien;
 }
 
 /* ----------------------------------------------------------------------------------
@@ -194,6 +233,17 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   var resultado = [] ;
+   var suma = num ;
+   for (var i = 0; i < 10; i++) {
+      suma += 2;
+      resultado.push(suma) ;
+
+      if (suma === i) {
+         return "Se interrumpió la ejecución"
+      }
+   }
+   return resultado; 
 }
 
 function continueStatement(num) {
@@ -203,6 +253,17 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+   var resultado = [] ;
+   var suma = num ;
+
+   for (var i = 0; i < 10; i++) {
+      if (i === 5) {
+         continue;
+      }
+      suma += 2;
+      resultado.push(suma) ;
+   }
+   return resultado;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
