@@ -6,6 +6,16 @@ function deObjetoAarray(objeto) {
    // Estos elementos debe ser cada par clave:valor del objeto recibido.
    // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
    // Tu código:
+   var newArray = [];
+
+   for (var clave in objeto) {
+      var parClaveValor = [];
+      parClaveValor.push(clave);
+      parClaveValor.push(objeto[clave]);
+      newArray.push(parClaveValor);
+   }
+
+   return newArray;
 }
 
 function numberOfCharacters(string) {
@@ -14,6 +24,23 @@ function numberOfCharacters(string) {
    // Las letras deben estar en orden alfabético.
    // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
    // Tu código:
+   var contador = {};
+
+  for (var i = 0; i < string.length; i++) {
+    var letra = string[i].toLowerCase();
+
+    if (/[a-z]/.test(letra)) {
+      contador[letra] = (contador[letra] || 0) + 1;
+    }
+  }
+
+  var orden = {};
+
+  Object.keys(contador).sort().forEach(function (clave) {
+    orden[clave] = contador[clave];
+  });
+
+  return orden;
 }
 
 function capToFront(string) {
@@ -22,6 +49,20 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
+   var Mayusculas = '';
+   var Minusculas = '';
+
+  for (var i = 0; i < string.length; i++) {
+       var letra = string[i];
+
+    if (/[A-Z]/.test(letra)) {
+      Mayusculas += letra;
+    } else {
+      Minusculas += letra;
+    }
+  }
+
+  return Mayusculas + Minusculas;
 }
 
 function asAmirror(frase) {
@@ -29,12 +70,20 @@ function asAmirror(frase) {
    // La diferencia es que cada palabra estará escrita al inverso.
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
    // Tu código:
+   var palabras = frase.split(" ");
+
+   var espejadas = palabras.map(function(palabra) {
+      return palabra.split("").reverse().join("");
+   });
+
+   return espejadas.join(" ");
 }
 
 function capicua(numero) {
    // Si el número que recibes es capicúa debes retornar el string: "Es capicua".
    // Caso contrario: "No es capicua".
    // Tu código:
+   
 }
 
 function deleteAbc(string) {
