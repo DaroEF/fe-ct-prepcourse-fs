@@ -83,13 +83,25 @@ function capicua(numero) {
    // Si el número que recibes es capicúa debes retornar el string: "Es capicua".
    // Caso contrario: "No es capicua".
    // Tu código:
-   
+   var numeroComoString = numero.toString();
+   var longitud = numeroComoString.length;
+ 
+   for (var i = 0; i < longitud / 2; i++) {
+     if (numeroComoString[i] !== numeroComoString[longitud - 1 - i]) {
+       return "No es capicua";
+     }
+   }
+ 
+   return "Es capicua";
 }
 
 function deleteAbc(string) {
    // Tu tarea es eliminar las letras "a", "b" y "c" del string recibido.
    // Retorna el string sin estas letras.
    // Tu código:
+   var stringSinAbc = string.replace(/[abc]/g, '');
+  return stringSinAbc;
+   
 }
 
 function sortArray(arrayOfStrings) {
@@ -98,6 +110,7 @@ function sortArray(arrayOfStrings) {
    // de la longitud de cada string.
    // [EJEMPLO]: ["You", "are", "beautiful", "looking"]  ---> [“You", "are", "looking", "beautiful"]
    // Tu código:
+   return arrayOfStrings.sort((a, b) => a.length - b.length);
 }
 
 function buscoInterseccion(array1, array2) {
@@ -107,6 +120,9 @@ function buscoInterseccion(array1, array2) {
    // Si no tienen elementos en común, retornar un arreglo vacío.
    // [PISTA]: los arreglos no necesariamente tienen la misma longitud.
    // Tu código:
+   var interseccion = array1.filter(elemento => array2.includes(elemento));
+
+  return interseccion;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
